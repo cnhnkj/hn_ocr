@@ -23,7 +23,13 @@ hn_ocr是惠农网基于[cnstd](https://github.com/breezedeus/cnstd) + [cnocr](h
 pip install -r requirements.txt
 ```  
 
-3. 运行  
+3. 初始化环境
+(如果不执行这一步，也是可以运行的， 只是第一次需要下载对应的模型，会导致启动变慢)
+``` shell script
+python install.py
+``` 
+
+4. 运行  
 项目默认运行在8889端口  
 ``` shell script
 python server.py
@@ -31,12 +37,17 @@ python server.py
 
 4. 配置文件在`settings`目录下面的`config.py`文件
 
+5. 离线非web模式运行
+``` shell script
+python main.py
+```
+
 ## docker部署
 
 待续。。。。
 
 
-## 接口文档
+## web服务接口文档
 
 # -----------------------------------
 ### 简要描述 
