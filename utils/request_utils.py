@@ -4,6 +4,7 @@ import os
 from PIL import Image
 from io import BytesIO
 
+
 def find_image(img_src):
     try:
         is_url = img_src.startswith('http:') or img_src.startswith('https:')
@@ -19,6 +20,6 @@ def find_image(img_src):
             else:
                 return None
     except Exception as ex:
-        logger.error(str(ex))
+        print(str(ex))
         return None
 
