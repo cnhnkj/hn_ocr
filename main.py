@@ -14,10 +14,10 @@ def img_ocr(cn_ocr, box_infos):
 
 
 if __name__ == '__main__':
-    std = CnStd(rotated_bbox=False)
+    std = CnStd(rotated_bbox=True)
     cn_ocr = CnOcr(model_name='densenet_lite_136-gru')
     # img_arr = ['examples/address_001.png', 'https://image.cnhnb.com/image/jpg/head/2021/10/31/ebb000315807439cb92bcde5dc9136ce.jpg', 'examples/taobao.jpeg']
-    img_arr = ['examples/test_reverse.jpg']
+    img_arr = ['examples/apple_001.jpeg']
     # img_arr = ['examples/word_file.jpg']
 
     for img_url in img_arr:
@@ -28,7 +28,7 @@ if __name__ == '__main__':
             continue
 
         box_infos = std.detect(img)
-        # std_utils.draw_rectangle(img, box_infos)
-        ocr_res = img_ocr(cn_ocr, box_infos)
-        print('ocr result: %s' % str(ocr_res))
+        std_utils.draw_rectangle(img, box_infos)
+        # ocr_res = img_ocr(cn_ocr, box_infos)
+        # print('ocr result: %s' % str(ocr_res))
 

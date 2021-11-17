@@ -11,8 +11,12 @@ from cnocr import CnOcr
 class Application(tornado.web.Application):
     def __init__(self, *args, **kwargs):
         super(Application, self).__init__(*args, **kwargs)
-        self.cn_std = CnStd(rotated_bbox=config.cnstd_settings['rotated_bbox'])
-        self.cn_ocr = CnOcr(model_name=config.cnocr_settings['model_name'])
+
+        self.cn_std = CnStd(model_name=config.cnstd_settings['model_name'],
+                            rotated_bbox=config.cnstd_settings['rotated_bbox'])
+
+        self.cn_ocr = CnOcr(model_name=config.cnocr_settings['model_name'],
+                            context=config.cnocr_settings['context'])
 
 
 def make_app():
