@@ -10,6 +10,6 @@ logging_settings = {'log_path': os.path.join(os.path.dirname(__file__), "../logs
 
 tornado_settings = {'port': 8898}
 
-cnstd_settings = {'rotated_bbox': True}
+cnstd_settings = {'rotated_bbox': False}
 
 cnocr_settings = {'model_name': 'densenet_lite_136-gru'}

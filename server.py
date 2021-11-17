@@ -4,9 +4,19 @@ import tornado.ioloop
 
 from settings import config
 
+from cnstd import CnStd
+from cnocr import CnOcr
+
+
+class Application(tornado.web.Application):
+    def __init__(self, *args, **kwargs):
+        super(Application, self).__init__(*args, **kwargs)
+        self.cn_std = CnStd(rotated_bbox=config.cnstd_settings['rotated_bbox'])
+        self.cn_ocr = CnOcr(model_name=config.cnocr_settings['model_name'])
+
 
 def make_app():
-    from handler import ocr_handler
+    from handler import ocr_url_handler, ocr_file_handler
     import tornado.options
 
     tornado.options.options.logging = config.logging_settings['log_level']
@@ -18,8 +28,9 @@ def make_app():
 
     tornado.options.parse_command_line()
 
-    return tornado.web.Application([
-        (r"/api/ocr", ocr_handler.OcrRun)
+    return Application([
+        (r"/api/ocr/url", ocr_url_handler.OcrUrlRun),
+        (r"/api/ocr/file", ocr_file_handler.OcrFileRun),
     ])
 
 

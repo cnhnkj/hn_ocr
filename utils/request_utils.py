@@ -4,6 +4,10 @@ import os
 from PIL import Image
 from io import BytesIO
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 def find_image(img_src):
     try:
@@ -19,7 +23,7 @@ def find_image(img_src):
                 return Image.open(img_src)
             else:
                 return None
-    except Exception as ex:
-        print(str(ex))
-        return None
 
+    except Exception as ex:
+        logger.error(str(ex))
+        return None
