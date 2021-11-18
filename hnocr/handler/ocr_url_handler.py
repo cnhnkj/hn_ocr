@@ -6,10 +6,10 @@ import json
 
 import logging
 
-from utils.np_encoder import NpEncoder
-from utils import request_utils
+from hnocr.utils.np_encoder import NpEncoder
+from hnocr.utils import request_utils
 
-from handler.base_handler import BaseHandler
+from hnocr.handler.base_handler import BaseHandler
 
 
 

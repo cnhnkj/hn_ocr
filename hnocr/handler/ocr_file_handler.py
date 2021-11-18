@@ -9,9 +9,9 @@ import logging
 from PIL import Image
 from io import BytesIO
 
-from handler.base_handler import BaseHandler
+from hnocr.handler.base_handler import BaseHandler
 
-from utils.np_encoder import NpEncoder
+from hnocr.utils.np_encoder import NpEncoder
 
 logger = logging.getLogger(__name__)
 

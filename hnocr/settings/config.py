@@ -2,7 +2,7 @@ import os
 
 BASE_DIRS = os.path.dirname(__file__)
 
-logging_settings = {'log_path': os.path.join(os.path.dirname(__file__), "../logs/log.log"),
+logging_settings = {'log_path': os.path.join(os.path.dirname(__file__), "../../logs/log.log"),
                     'log_level': 'debug',
                     'log_rotate_mode': 'time',
                     'log_rotate_when': 'D',

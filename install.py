@@ -12,8 +12,8 @@ CN_STD_MODELS = ['db_resnet18', 'db_resnet34', 'db_shufflenet_v2_small', 'db_mob
 CN_OCR_MODELS = ['densenet_lite_114-fc', 'densenet_lite_124-fc', 'densenet_lite_134-fc', 'densenet_lite_134-gru',
                  'densenet_lite_136-fc', 'densenet_lite_136-gru']
 
-CNSTD_MODEL_FILE_PREFIX = 'cnstd-v{}'.format(CNSTD_MODEL_VERSION)
-CNOCR_MODEL_FILE_PREFIX = 'cnocr-v{}'.format(CNOCR_MODEL_VERSION)
+CNSTD_MODEL_FILE_PREFIX = '{}'.format(CNSTD_MODEL_VERSION)
+CNOCR_MODEL_FILE_PREFIX = '{}'.format(CNOCR_MODEL_VERSION)
 
 
 def assert_and_prepare_model_files(root, model_name, cn_std):
