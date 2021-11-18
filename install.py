@@ -8,10 +8,9 @@ from cnocr.consts import MODEL_VERSION as CNOCR_MODEL_VERSION
 from cnstd.utils import get_model_file as std_get_model_file, data_dir as std_data_dir
 from cnocr.utils import get_model_file as ocr_get_model_file, data_dir as ocr_data_dir
 
-CN_STD_MODELS = ['db_resnet18', 'db_resnet34', 'db_shufflenet_v2_small', 'db_shufflenet_v3_small']
+CN_STD_MODELS = ['db_resnet18', 'db_resnet34', 'db_shufflenet_v2_small', 'db_mobilenet_v3_small']
 CN_OCR_MODELS = ['densenet_lite_114-fc', 'densenet_lite_124-fc', 'densenet_lite_134-fc', 'densenet_lite_134-gru',
                  'densenet_lite_136-fc', 'densenet_lite_136-gru']
-
 
 CNSTD_MODEL_FILE_PREFIX = 'cnstd-v{}'.format(CNSTD_MODEL_VERSION)
 CNOCR_MODEL_FILE_PREFIX = 'cnocr-v{}'.format(CNOCR_MODEL_VERSION)
@@ -40,11 +39,10 @@ def init_cn_std_model():
 
 
 def init_cn_ocr_model():
-    for cn_ocr_model in CN_STD_MODELS:
+    for cn_ocr_model in CN_OCR_MODELS:
         assert_and_prepare_model_files(ocr_data_dir(), cn_ocr_model, False)
 
 
 if __name__ == '__main__':
     init_cn_std_model()
     init_cn_ocr_model()
-
