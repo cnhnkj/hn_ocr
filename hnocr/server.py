@@ -1,11 +1,19 @@
+import os, sys
+
 import tornado.web
 import tornado.httpserver
 import tornado.ioloop
+import tornado.options
 
 from settings import config
 
 from cnstd import CnStd
 from cnocr import CnOcr
+
+BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(BASE_PATH)
+
+from hnocr.handler import ocr_url_handler, ocr_file_handler
 
 
 class Application(tornado.web.Application):
@@ -20,9 +28,6 @@ class Application(tornado.web.Application):
 
 
 def make_app():
-    from handler import ocr_url_handler, ocr_file_handler
-    import tornado.options
-
     tornado.options.options.logging = config.logging_settings['log_level']
 
     tornado.options.options.log_file_prefix = config.logging_settings['log_path']

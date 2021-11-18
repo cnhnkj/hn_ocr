@@ -44,7 +44,18 @@ python main.py
 
 ## docker部署
 
-待续。。。。
+```shell script
+# 从源码编译
+docker build -t hnocr:v1.0.0 .
+
+# 或者从 dockerhub pull
+docker pull hnocr:latest
+
+# 运行镜像
+docker run -itd --rm -p 8898:8898 --name hnocr hnocr:latest 
+```
+
+
 
 
 ## web服务接口文档
