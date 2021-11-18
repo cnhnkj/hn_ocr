@@ -46,6 +46,7 @@ python main.py
 
 ```shell script
 # 从源码编译
+# 目前编译的镜像太大，暂时没有上传到dockerhub，希望可以有什么办法可以进行压缩镜像
 docker build -t hnocr:v1.0.0 .
 
 # 运行镜像
@@ -54,6 +55,7 @@ docker run -itd --rm -p 8898:8898 --name hnocr hnocr:latest
 
 ```shell script
 # 或者从 dockerhub pull
+# 暂时还没有上传
 docker pull hnocr:latest
 
 # 运行镜像
