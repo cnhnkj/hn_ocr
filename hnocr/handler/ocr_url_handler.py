@@ -11,8 +11,6 @@ from hnocr.utils import request_utils
 
 from hnocr.handler.base_handler import BaseHandler
 
-
-
 logger = logging.getLogger(__name__)
 
 
@@ -25,6 +23,7 @@ class OcrUrlRun(BaseHandler):
     @tornado.gen.coroutine
     def post(self):
         url = self.get_argument('url', None)
+        image = self.get_argument('image', None)
         coordinate = self.get_argument('coordinate', '')
 
         start_time = time.time()
@@ -32,7 +31,9 @@ class OcrUrlRun(BaseHandler):
         try:
             if url is not None:
                 logger.info("request is " + json.dumps({'url': url, 'coordinate': coordinate}))
-                response.update(self.handler_url(url, coordinate))
+                response.update(self.handler_url(url, None, coordinate))
+            elif image is not None:
+                response.update(self.handler_url(None, image, coordinate))
             else:
                 self.set_status(400)
                 logger.error(json.dumps({'code': 400, 'msg': '没有传入参数'}, cls=NpEncoder))
@@ -50,12 +51,15 @@ class OcrUrlRun(BaseHandler):
         self.set_status(200)
         self.finish(json_decode)
 
-    def handler_url(self, url, coordinate):
-        img = request_utils.find_image(url)
+    def handler_url(self, url, image, coordinate):
+        img = None
+        if url is not None:
+            img = request_utils.find_image(url)
+
+        if image is not None:
+            img = request_utils.base64_to_image(image)
 
         if img is None:
             raise RuntimeError("图片下载失败，请确认图片路径正确性")
 
         return self.analysis_file(img, coordinate)
-
-

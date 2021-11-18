@@ -86,7 +86,8 @@ docker run -itd --rm -p 8898:8898 --name hnocr hncnb/hnocr:latest
 
 |  参数名称   | 是否必须  | 数据类型 | 说明 |
 |  ----  | ----  |  ----  | ----  |
-| url  | 必须 | string  | 要识别图片的url地址 |
+| url  | 必须 | string  | 要识别图片的url地址,有该字段则优先这个字段 |
+| image  | 必须 | string  | 要识别图片base64数据(不需要头标签) |
 | coordinate  | 不必须 | bool  | 是否返回坐标 |
 
 ### 具体请求例子

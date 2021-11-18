@@ -1,5 +1,6 @@
 import requests
 import os
+import base64
 
 from PIL import Image
 from io import BytesIO
@@ -24,6 +25,16 @@ def find_image(img_src):
             else:
                 return None
 
+    except Exception as ex:
+        logger.error(str(ex))
+        return None
+
+
+def base64_to_image(image):
+    try:
+        raw_image = base64.b64decode(image.encode('utf8'))
+        img = Image.open(BytesIO(raw_image))
+        return img
     except Exception as ex:
         logger.error(str(ex))
         return None
