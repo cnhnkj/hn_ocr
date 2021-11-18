@@ -8,7 +8,7 @@ RUN mkdir ./hn_ocr
 
 RUN /usr/local/bin/python -m pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
 COPY ./requirements.txt ./hn_ocr/
-RUN pip3 install -r ./hn_ocr/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+RUN pip3 install --no-cache-dir -r ./hn_ocr/requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
 COPY . ./hn_ocr
 
 RUN python3 ./hn_ocr/install.py

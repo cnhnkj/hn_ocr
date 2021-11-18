@@ -48,11 +48,16 @@ python main.py
 # 从源码编译
 docker build -t hnocr:v1.0.0 .
 
+# 运行镜像
+docker run -itd --rm -p 8898:8898 --name hnocr hnocr:latest 
+```
+
+```shell script
 # 或者从 dockerhub pull
 docker pull hnocr:latest
 
 # 运行镜像
-docker run -itd --rm -p 8898:8898 --name hnocr hnocr:latest 
+docker run -itd --rm -p 8898:8898 --name hnocr hncnb/hnocr:latest 
 ```
 
 
