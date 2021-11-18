@@ -297,3 +297,14 @@ curl -XPOST '127.0.0.1:8898/api/ocr/file?coordinate=21' -H 'Content-Type: multip
 }
 ```
 
+
+## 更新记录  
+* 2021年11月20日  
+    基本完成简单的web接口服务
+
+## License  
+Apache 2.0
+
+## 鸣谢
+* 感谢项目 [cnstd](https://github.com/breezedeus/cnstd)
+* 感谢项目 [cnocr](https://github.com/breezedeus/cnocr)
