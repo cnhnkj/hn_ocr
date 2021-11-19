@@ -43,7 +43,7 @@ class OcrFileRun(BaseHandler):
             return
 
         response.update({'speed_time': (time.time() - start_time)})
-        json_decode = json.dumps({'code': 200, 'msg': '成功', 'data': response}, cls=NpEncoder)
+        json_decode = json.dumps({'code': 0, 'msg': '成功', 'data': response}, cls=NpEncoder)
         logger.info(json_decode)
 
         self.set_status(200)
