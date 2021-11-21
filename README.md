@@ -6,6 +6,8 @@ hn_ocr是惠农网基于[cnstd](https://github.com/breezedeus/cnstd) + [cnocr](h
 提供了http的接口，便于微服务体系中其他服务调用
 也便于前端页面进行调用
 
+# [自己对比其他ocr方案](./ocr_other.md)
+
 
 # 特性
 * 中文检测(基于cnstd)
