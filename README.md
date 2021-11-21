@@ -1,6 +1,7 @@
 # 惠农网开源的离线OCR服务
 
-# 介绍
+
+# 项目介绍
 hn_ocr是惠农网基于[cnstd](https://github.com/breezedeus/cnstd) + [cnocr](https://github.com/breezedeus/cnocr) + [tronado](https://github.com/tornadoweb/tornado/tags) 构建的web服务
 提供了http的接口，便于微服务体系中其他服务调用
 也便于前端页面进行调用
